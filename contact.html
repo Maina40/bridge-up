@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact – Bridge Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <!-- ...existing header/navigation... -->
+    <header class="top">
+      <div class="brand">
+        <div class="logo">BU</div>
+        <div>
+          <h1>Bridge Up</h1>
+          <p>Connect. Serve. Grow.</p>
+        </div>
+      </div>
+      <nav class="hero-cta">
+        <a href="index.html" class="btn-ghost">Home</a>
+        <a href="about.html" class="btn-ghost">About</a>
+        <a href="programs.html" class="btn-ghost">Programs</a>
+        <a href="gallery.html" class="btn-ghost">Gallery</a>
+        <a href="get-involved.html" class="btn-primary">Get Involved</a>
+        <a href="contact.html" class="btn-ghost active">Contact</a>
+      </nav>
+    </header>
+    <main class="container">
+      <section>
+        <div class="panel">
+          <h2 class="title">Contact Us</h2>
+          <p class="subtitle">
+            Reach out to Bridge Up for partnership, volunteering, or general inquiries. We love connecting with new people and organizations!
+          </p>
+          <form method="POST" action="backend/contact.php" class="feature" style="margin-bottom:18px;display:flex;flex-direction:column;gap:12px;">
+            <label for="name" style="font-weight:600;">Name:</label>
+            <input type="text" name="name" id="name" required style="padding:8px;border-radius:8px;border:1px solid #222;">
+            <label for="email" style="font-weight:600;">Email:</label>
+            <input type="email" name="email" id="email" required style="padding:8px;border-radius:8px;border:1px solid #222;">
+            <label for="message" style="font-weight:600;">Message:</label>
+            <textarea name="message" id="message" rows="5" required style="padding:8px;border-radius:8px;border:1px solid #222;"></textarea>
+            <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message</button>
+          </form>
+          <div class="social-links" style="display:flex;gap:12px;margin-bottom:12px;">
+            <a href="https://www.instagram.com/_bridge_up?utm_source=qr&igsh=bDA5ZndqaThydG1r" target="_blank" title="Instagram">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" style="height:28px;filter:invert(1);">
+            </a>
+            <a href="https://www.facebook.com/share/1Hrt84gqNw/" target="_blank" title="Facebook">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" style="height:28px;filter:invert(1);">
+            </a>
+            <a href="https://x.com/UpCommunit69520?t=LOsBGY-CbybyWy1dNQcjMw&s=08" target="_blank" title="X / Twitter">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="Twitter" style="height:28px;filter:invert(1);">
+            </a>
+            <a href="https://wa.me/254102727696" target="_blank" title="WhatsApp">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp" style="height:28px;filter:invert(1);">
+            </a>
+          </div>
+          <p>
+            Email: <a href="mailto:bridgeupcomm@gmail.com" style="color:#ff4b4b;">bridgeupcomm@gmail.com</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>© <strong>Bridge Up</strong> — Connect · Serve · Grow</div>
+      <div style="display:flex;gap:8px">
+        <a href="#" class="btn-ghost">Terms</a>
+        <a href="#" class="btn-ghost">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

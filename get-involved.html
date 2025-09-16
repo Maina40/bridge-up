@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved – Bridge Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">BU</div>
+        <div>
+          <h1>Bridge Up</h1>
+          <p>Connect. Serve. Grow.</p>
+        </div>
+      </div>
+      <nav class="hero-cta">
+        <a href="index.html" class="btn-ghost">Home</a>
+        <a href="about.html" class="btn-ghost">About</a>
+        <a href="programs.html" class="btn-ghost">Programs</a>
+        <a href="gallery.html" class="btn-ghost">Gallery</a>
+        <a href="get-involved.html" class="btn-primary active">Get Involved</a>
+        <a href="contact.html" class="btn-ghost">Contact</a>
+      </nav>
+    </header>
+    <main class="container">
+      <section>
+        <div class="panel">
+          <h2 class="title">Get Involved</h2>
+          <p class="subtitle">
+            Join Bridge Up and help us make a difference! Whether you want to volunteer, become a member, or support us with a donation, your involvement matters.<br><br>
+            <strong>Volunteer:</strong> Sign up for upcoming events and projects.<br>
+            <strong>Membership:</strong> Join as a free member and receive updates, or stay tuned for premium options.<br>
+            <strong>Donate:</strong> Support our work via PayPal, Stripe, or M-Pesa.<br>
+            <strong>Merch Store:</strong> Coming soon!
+          </p>
+          <form method="POST" action="backend/volunteer.php" class="feature" style="margin-bottom:18px;">
+            <label for="name">Name:</label>
+            <input type="text" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+            <label for="interest">Area of Interest:</label>
+            <input type="text" name="interest">
+            <button type="submit" class="btn-primary">Sign Up</button>
+          </form>
+          <div class="features">
+            <form action="backend/paypal.php" method="POST"><button type="submit" class="btn-primary">Donate with PayPal</button></form>
+            <form action="backend/stripe.php" method="POST"><button type="submit" class="btn-primary">Donate with Card (Stripe)</button></form>
+            <form action="backend/mpesa.php" method="POST"><button type="submit" class="btn-primary">Donate with M-Pesa</button></form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>© <strong>Bridge Up</strong> — Connect · Serve · Grow</div>
+      <div style="display:flex;gap:8px">
+        <a href="#" class="btn-ghost">Terms</a>
+        <a href="#" class="btn-ghost">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

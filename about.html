@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – Bridge Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">BU</div>
+        <div>
+          <h1>Bridge Up</h1>
+          <p>Connect. Serve. Grow.</p>
+        </div>
+      </div>
+      <nav class="hero-cta">
+        <a href="index.html" class="btn-ghost">Home</a>
+        <a href="about.html" class="btn-ghost active">About</a>
+        <a href="programs.html" class="btn-ghost">Programs</a>
+        <a href="gallery.html" class="btn-ghost">Gallery</a>
+        <a href="get-involved.html" class="btn-primary">Get Involved</a>
+        <a href="contact.html" class="btn-ghost">Contact</a>
+      </nav>
+    </header>
+    <main class="container">
+      <section>
+        <div class="panel">
+          <h2 class="title">About Bridge Up</h2>
+          <p class="subtitle">
+            Bridge Up was founded to empower youth and communities through service, connection, and growth. 
+            Our story began with a group of passionate volunteers who saw the need for a platform that brings people together for good.<br><br>
+            <strong>Mission:</strong> To build bridges between people and opportunities, serving communities and empowering growth.<br>
+            <strong>Vision:</strong> A world where youth and communities thrive together.<br>
+            <strong>Core Values:</strong>
+            <ul>
+              <li><strong>Connect:</strong> Building relationships and networks.</li>
+              <li><strong>Serve:</strong> Making a difference through action.</li>
+              <li><strong>Grow:</strong> Personal and collective development.</li>
+            </ul>
+          </p>
+        </div>
+        <!-- Feedback Panel -->
+        <div class="panel" style="margin-top:18px;">
+          <h3 class="title">Feedback from Our Community</h3>
+          <div id="feedback-list" style="margin-bottom:16px;">
+            <!-- User comments will appear here -->
+          </div>
+          <!-- Feedback submission form -->
+          <form id="feedback-form" style="display:flex;flex-direction:column;gap:8px;">
+            <input type="text" id="feedback-name" placeholder="Your Name" style="padding:8px;border-radius:8px;border:1px solid #222;" required>
+            <textarea rows="3" id="feedback-text" placeholder="Your feedback..." style="padding:8px;border-radius:8px;border:1px solid #222;" required></textarea>
+            <button type="submit" class="btn-primary">Submit Feedback</button>
+            <span style="color:#94a3b8;font-size:12px;">(Your comment will appear below)</span>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>© <strong>Bridge Up</strong> — Connect · Serve · Grow</div>
+      <div style="display:flex;gap:8px">
+        <a href="#" class="btn-ghost">Terms</a>
+        <a href="#" class="btn-ghost">Privacy</a>
+      </div>
+    </footer>
+    <script>
+      // Load comments from backend
+      function loadComments() {
+        fetch('backend/comments.php')
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          })
+          .then(comments => {
+            var feedbackList = document.getElementById('feedback-list');
+            feedbackList.innerHTML = '';
+            comments.forEach(function(comment) {
+              var div = document.createElement('div');
+              div.style.background = 'rgba(255,255,255,0.03)';
+              div.style.padding = '12px';
+              div.style.borderRadius = '8px';
+              div.style.marginBottom = '10px';
+              div.style.position = 'relative';
+              div.innerHTML =
+                '<strong>' + comment.name + '</strong> <span style="color:#94a3b8;font-size:12px;">– Visitor</span>' +
+                '<div style="margin-top:6px;">' + comment.text + '</div>' +
+                '<button onclick="deleteComment(this, \'' + comment.id + '\')" style="position:absolute;top:8px;right:8px;background:transparent;border:none;color:#ff4b4b;font-size:16px;cursor:pointer;" title="Delete">&times;</button>';
+              feedbackList.appendChild(div);
+            });
+          })
+          .catch(error => {
+            document.getElementById('feedback-list').innerHTML = '<div style="color:#ff4b4b;">Unable to load comments.</div>';
+          });
+      }
+
+      function deleteComment(btn, id) {
+        fetch('backend/comments.php?id=' + encodeURIComponent(id), { method: 'DELETE' })
+          .then(response => {
+            if (response.ok) btn.parentElement.remove();
+          });
+      }
+
+      document.getElementById('feedback-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('feedback-name').value.trim();
+        var text = document.getElementById('feedback-text').value.trim();
+        if (name && text) {
+          fetch('backend/comments.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, text: text })
+          })
+          .then(response => {
+            if (response.ok) {
+              document.getElementById('feedback-form').reset();
+              loadComments();
+            } else {
+              alert('Failed to submit feedback.');
+            }
+          })
+          .catch(() => alert('Failed to submit feedback.'));
+        }
+      });
+
+      // Initial load
+      loadComments();
+    </script>
+  </div>
+</body>
+</html>

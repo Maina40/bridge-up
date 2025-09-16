@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery – Bridge Up</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">BU</div>
+        <div>
+          <h1>Bridge Up</h1>
+          <p>Connect. Serve. Grow.</p>
+        </div>
+      </div>
+      <nav class="hero-cta">
+        <a href="index.html" class="btn-ghost">Home</a>
+        <a href="about.html" class="btn-ghost">About</a>
+        <a href="programs.html" class="btn-ghost">Programs</a>
+        <a href="gallery.html" class="btn-ghost active">Gallery</a>
+        <a href="get-involved.html" class="btn-primary">Get Involved</a>
+        <a href="contact.html" class="btn-ghost">Contact</a>
+      </nav>
+    </header>
+    <main class="container">
+      <section>
+        <div class="panel">
+          <h2 class="title">Event Gallery</h2>
+          <p class="subtitle">Photos from our recent events and activities.</p>
+          <!-- Photo upload form (for admin/future use) -->
+          <form method="POST" action="backend/upload_photo.php" enctype="multipart/form-data" class="feature" style="margin-bottom:18px;">
+            <label for="photo" style="font-weight:600;">Upload Event Photo:</label>
+            <input type="file" name="photo" id="photo" accept="image/*" required style="margin-bottom:8px;">
+            <button type="submit" class="btn-primary">Upload</button>
+          </form>
+          <!-- Gallery grid -->
+          <div class="gallery-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;">
+            <!-- Example images, replace/add dynamically as needed -->
+            <img src="images/event1.jpg" alt="Event 1" style="width:100%;border-radius:10px;">
+            <img src="images/event2.jpg" alt="Event 2" style="width:100%;border-radius:10px;">
+            <img src="images/event3.jpg" alt="Event 3" style="width:100%;border-radius:10px;">
+            <!-- Add more images here -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div>© <strong>Bridge Up</strong> — Connect · Serve · Grow</div>
+      <div style="display:flex;gap:8px">
+        <a href="#" class="btn-ghost">Terms</a>
+        <a href="#" class="btn-ghost">Privacy</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
