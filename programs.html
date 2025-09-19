@@ -8,6 +8,173 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background: linear-gradient(180deg,#071126 0%, #041124 100%);
+      color: #e6eef8;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
+    header.top {
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.03);
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .logo {
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .brand h1 {
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: -0.2px;
+    }
+    .brand p {
+      margin: 0;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav.hero-cta a,
+    nav.hero-cta .btn-primary {
+      text-align: center;
+      min-width: 100px;
+      padding: 8px 14px;
+      margin: 2px 0;
+    }
+    main.container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding: 2em;
+      border-radius: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      max-width: 700px;
+      width: 100%;
+      margin: 2em 0;
+      text-align: left;
+    }
+    .panel .title {
+      font-size: 2em;
+      color: #ff4b4b;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    .panel .subtitle {
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: #e6eef8;
+      text-align: left;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg,#ff4b4b,#ff8f4b);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      padding: 0.8em 1.5em;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg,#ff8f4b,#ff4b4b);
+      color: #fff;
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid rgba(255,255,255,0.03);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s, border-color 0.2s;
+      text-align: center;
+    }
+    .btn-ghost.active,
+    .btn-ghost:hover {
+      color: #ff4b4b;
+      border-color: #ff4b4b;
+    }
+    footer {
+      margin-top: 24px;
+      color: #94a3b8;
+      font-size: 13px;
+      text-align: center;
+      width: 100%;
+    }
+    @media (max-width: 900px) {
+      .panel {
+        padding: 1em;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 12px 0;
+        max-width: 100%;
+      }
+      header.top {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .logo {
+        width: 44px !important;
+        height: 44px !important;
+      }
+      .panel .title {
+        font-size: 1.3em;
+      }
+      .panel .subtitle {
+        font-size: 1em;
+      }
+      main.container {
+        padding: 0;
+      }
+      section {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -36,7 +203,11 @@
             <strong>Community Service Initiatives:</strong> We organize clean-up drives, food distributions, and support local causes.<br>
             <strong>Youth Empowerment:</strong> Workshops, mentorship, and leadership training for young professionals.<br>
             <strong>Partnerships & Collaborations:</strong> Working with schools, NGOs, and businesses to maximize impact.<br>
-            <strong>Media & Gallery:</strong> See our <a href="gallery.html" class="btn-ghost">Gallery</a> for photos from recent events.
+            <strong>Media & Gallery:</strong> See our <a href="gallery.html" class="btn-ghost">Gallery</a> for photos from recent events.<br>
+            <strong>Support Us:</strong>
+            <a href="paypal.php" class="btn-primary">Donate with PayPal</a>
+            <a href="stripe.php" class="btn-primary">Donate with Stripe</a>
+            <a href="mpesa.php" class="btn-primary">Donate with M-Pesa</a>
           </p>
         </div>
       </section>

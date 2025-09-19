@@ -2,8 +2,12 @@
 session_start();
 require 'connect.php';
 
-// Use mysqli connection from connect.php
-$conn = $conn;
+// $conn is already defined in connect.php
+if (!$conn || $conn->connect_error) {
+  http_response_code(500);
+  echo json_encode(['error' => 'Database connection failed']);
+  exit;
+}
 
 // Load comments from database
 function loadComments($conn) {

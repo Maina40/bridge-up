@@ -6,8 +6,7 @@
   <title>Contact – Bridge Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <div class="wrap">
@@ -35,7 +34,7 @@
           <p class="subtitle">
             Reach out to Bridge Up for partnership, volunteering, or general inquiries. We love connecting with new people and organizations!
           </p>
-          <form method="POST" action="contact.php" class="feature" style="margin-bottom:18px;display:flex;flex-direction:column;gap:12px;">
+          <form id="contact-form" class="feature" style="margin-bottom:18px;display:flex;flex-direction:column;gap:12px;">
             <label for="name" style="font-weight:600;">Name:</label>
             <input type="text" name="name" id="name" required style="padding:8px;border-radius:8px;border:1px solid #222;">
             <label for="email" style="font-weight:600;">Email:</label>
@@ -70,5 +69,20 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
+      var text = encodeURIComponent(
+        "Bridge Up Contact Form\nName: " + name +
+        "\nEmail: " + email +
+        "\nMessage: " + message
+      );
+      var wa_url = "https://wa.me/254102727696?text=" + text;
+      window.open(wa_url, "_blank");
+    });
+  </script>
 </body>
 </html>

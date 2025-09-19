@@ -5,10 +5,10 @@ if (basename($_SERVER['PHP_SELF']) === basename(__FILE__)) {
     exit('Access denied.');
 }
 
-$host = 'sql113.infinityfree.com';
-$user = 'if0_39976118';
+$host = 'sql311.byethost33.com';
+$user = 'Codex:8365';
 $pass = 'zGNx0etV1IcB';
-$dbname = 'if0_39976118_bridge_up';
+$dbname = 'b33_39977330_bridge_up';
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

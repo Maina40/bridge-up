@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: $wa_url");
     exit();
 } else {
-    header('Location: ../contact.html?error=invalid');
+    header('Location: contact.html?error=invalid');
     exit();
 }
 ?>

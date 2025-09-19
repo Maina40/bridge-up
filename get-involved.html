@@ -6,8 +6,7 @@
   <title>Get Involved – Bridge Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
   <div class="wrap">
@@ -39,7 +38,7 @@
             <strong>Donate:</strong> Support our work via PayPal, Stripe, or M-Pesa.<br>
             <strong>Merch Store:</strong> Coming soon!
           </p>
-          <form method="POST" action="volunteer.php" class="feature" style="margin-bottom:18px;">
+          <form method="POST" action="backend/volunteer.php" class="feature" style="margin-bottom:18px;">
             <label for="name">Name:</label>
             <input type="text" name="name" required>
             <label for="email">Email:</label>
@@ -49,9 +48,9 @@
             <button type="submit" class="btn-primary">Sign Up</button>
           </form>
           <div class="features">
-            <form action="paypal.php" method="POST"><button type="submit" class="btn-primary">Donate with PayPal</button></form>
-            <form action="stripe.php" method="POST"><button type="submit" class="btn-primary">Donate with Card (Stripe)</button></form>
-            <form action="mpesa.php" method="POST"><button type="submit" class="btn-primary">Donate with M-Pesa</button></form>
+            <a href="paypal.php" class="btn-primary" style="display:inline-block;text-align:center;margin-bottom:8px;">Donate with PayPal</a>
+            <a href="stripe.php" class="btn-primary" style="display:inline-block;text-align:center;margin-bottom:8px;">Donate with Card (Stripe)</a>
+            <a href="mpesa.php" class="btn-primary" style="display:inline-block;text-align:center;margin-bottom:8px;">Donate with M-Pesa</a>
           </div>
         </div>
       </section>
@@ -63,4 +62,5 @@
     </footer>
   </div>
 </body>
+</html>
 </html>
