@@ -6,7 +6,8 @@
   <title>About Us – Bridge Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="wrap">
@@ -66,7 +67,7 @@
             <!-- User comments will appear here -->
           </div>
           <!-- Feedback submission form -->
-          <form id="feedback-form" action="backend/comments.php" method="POST" style="display:flex;flex-direction:column;gap:8px;">
+          <form id="feedback-form" action="comments.php" method="POST" style="display:flex;flex-direction:column;gap:8px;">
             <input type="text" id="feedback-name" name="name" placeholder="Your Name" style="padding:8px;border-radius:8px;border:1px solid #222;" required>
             <textarea rows="3" id="feedback-text" name="text" placeholder="Your feedback..." style="padding:8px;border-radius:8px;border:1px solid #222;" required></textarea>
             <button type="submit" class="btn-primary">Submit Feedback</button>
@@ -84,7 +85,7 @@
   <script>
     // Load comments from backend
     function loadComments() {
-      fetch('backend/comments.php')
+      fetch('comments.php')
         .then(response => {
           if (!response.ok) throw new Error('Network response was not ok');
           return response.json();
@@ -112,7 +113,7 @@
     }
 
     function deleteComment(btn, id) {
-      fetch('backend/comments.php?id=' + encodeURIComponent(id), { method: 'DELETE' })
+      fetch('comments.php?id=' + encodeURIComponent(id), { method: 'DELETE' })
         .then(response => {
           if (response.ok) btn.parentElement.remove();
         });
@@ -123,7 +124,7 @@
       var name = document.getElementById('feedback-name').value.trim();
       var text = document.getElementById('feedback-text').value.trim();
       if (name && text) {
-        fetch('backend/comments.php', {
+        fetch('comments.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name: name, text: text })
@@ -144,5 +145,4 @@
     loadComments();
   </script>
 </body>
-</html>
 </html>

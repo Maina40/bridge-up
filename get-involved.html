@@ -6,7 +6,8 @@
   <title>Get Involved – Bridge Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="wrap">
@@ -38,7 +39,7 @@
             <strong>Donate:</strong> Support our work via PayPal, Stripe, or M-Pesa.<br>
             <strong>Merch Store:</strong> Coming soon!
           </p>
-          <form method="POST" action="backend/volunteer.php" class="feature" style="margin-bottom:18px;">
+          <form method="POST" action="volunteer.php" class="feature" style="margin-bottom:18px;">
             <label for="name">Name:</label>
             <input type="text" name="name" required>
             <label for="email">Email:</label>
@@ -48,9 +49,9 @@
             <button type="submit" class="btn-primary">Sign Up</button>
           </form>
           <div class="features">
-            <form action="backend/paypal.php" method="POST"><button type="submit" class="btn-primary">Donate with PayPal</button></form>
-            <form action="backend/stripe.php" method="POST"><button type="submit" class="btn-primary">Donate with Card (Stripe)</button></form>
-            <form action="backend/mpesa.php" method="POST"><button type="submit" class="btn-primary">Donate with M-Pesa</button></form>
+            <form action="paypal.php" method="POST"><button type="submit" class="btn-primary">Donate with PayPal</button></form>
+            <form action="stripe.php" method="POST"><button type="submit" class="btn-primary">Donate with Card (Stripe)</button></form>
+            <form action="mpesa.php" method="POST"><button type="submit" class="btn-primary">Donate with M-Pesa</button></form>
           </div>
         </div>
       </section>
@@ -62,5 +63,4 @@
     </footer>
   </div>
 </body>
-</html>
 </html>

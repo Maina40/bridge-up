@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'backend/connect.php';
+require 'connect.php';
 
 // Use mysqli connection from connect.php
 $conn = $conn;
