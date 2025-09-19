@@ -5,18 +5,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $message = trim($_POST['message'] ?? '');
 
-    // WhatsApp API link (using wa.me for direct message)
-    $whatsapp_number = '254102727696';
-    $text = urlencode("Bridge Up Contact Form\nName: $name\nEmail: $email\nMessage: $message");
-    $wa_url = "https://wa.me/$whatsapp_number?text=$text";
+    $to = 'bridgeupcomm@gmail.com';
+    $subject = "Bridge Up Contact Form: $name";
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    $headers = "From: Bridge Up Website <no-reply@bridgeup.org>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    header("Location: $wa_url");
-    exit();
-} else {
-    header('Location: ../contact.html?error=invalid');
-    exit();
-}
-?>
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($name) && !empty($message)) {
+        if (mail($to, $subject, $body, $headers)) {
+            header('Location: ../contact.html?success=1');
+            exit();
         } else {
             error_log("Mail send failed: to=$to, subject=$subject, headers=$headers");
             header('Location: ../contact.html?error=send');
@@ -30,4 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../contact.html?error=invalid');
     exit();
 }
+?>
 ?>

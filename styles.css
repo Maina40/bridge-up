@@ -178,6 +178,51 @@ footer{
   }
 }
 
+/* Fix mobile layout for main container and panels */
+@media (max-width: 900px) {
+  main.container {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+  }
+  section, aside {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .panel {
+    margin: 12px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .hero-cta {
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 0;
+    align-items: flex-start;
+  }
+  .brand {
+    flex-direction: row;
+    gap: 8px;
+  }
+  nav.hero-cta a,
+  nav.hero-cta .btn-primary {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    padding-left: 10px;
+  }
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Ensure inputs and buttons are touch-friendly */
+input, textarea, button {
+  font-size: 1em;
+  min-height: 44px;
+}
+
 @media(min-width:1200px){
   :root{ --max-width:1200px; }
 }
