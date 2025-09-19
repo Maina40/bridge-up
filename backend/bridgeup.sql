@@ -1,8 +1,3 @@
--- Bridge Up basic database schema
-
-CREATE DATABASE IF NOT EXISTS bridgeup CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE bridgeup;
-
 -- Members table (for user accounts)
 CREATE TABLE IF NOT EXISTS members (
     id INT AUTO_INCREMENT PRIMARY KEY,

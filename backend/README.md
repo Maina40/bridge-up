@@ -59,3 +59,33 @@ If you see a "Page not found" error like the screenshot, here are possible cause
 **Summary:**  
 - Netlify is for static sites (HTML, CSS, JS only).
 - Use a PHP host for backend features.
+
+# Where is the PHP config file?
+
+For database connections in PHP, you typically create a config file such as:
+
+- `c:\xampp\htdocs\bridge_up\backend\db.php`
+
+This file contains your database connection settings (host, username, password, database name), for example:
+
+```php
+<?php
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$dbname = 'bridgeup';
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+```
+
+**Usage:**  
+Include this file at the top of any PHP script that needs to access the database:
+
+```php
+require 'backend/db.php';
+```
