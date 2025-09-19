@@ -6,6 +6,7 @@
   <title>About Us – Bridge Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="/bridge_up/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <div class="wrap">
@@ -65,9 +66,9 @@
             <!-- User comments will appear here -->
           </div>
           <!-- Feedback submission form -->
-          <form id="feedback-form" style="display:flex;flex-direction:column;gap:8px;">
-            <input type="text" id="feedback-name" placeholder="Your Name" style="padding:8px;border-radius:8px;border:1px solid #222;" required>
-            <textarea rows="3" id="feedback-text" placeholder="Your feedback..." style="padding:8px;border-radius:8px;border:1px solid #222;" required></textarea>
+          <form id="feedback-form" action="backend/comments.php" method="POST" style="display:flex;flex-direction:column;gap:8px;">
+            <input type="text" id="feedback-name" name="name" placeholder="Your Name" style="padding:8px;border-radius:8px;border:1px solid #222;" required>
+            <textarea rows="3" id="feedback-text" name="text" placeholder="Your feedback..." style="padding:8px;border-radius:8px;border:1px solid #222;" required></textarea>
             <button type="submit" class="btn-primary">Submit Feedback</button>
             <span style="color:#94a3b8;font-size:12px;">(Your comment will appear below)</span>
           </form>
@@ -144,5 +145,4 @@
   </script>
 </body>
 </html>
-</body>
 </html>

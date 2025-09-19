@@ -1,4 +1,7 @@
 <?php
+// If you use DB connection, update to:
+require 'connect.php';
+
 $comments_file = '../data/comments.json';
 
 // Ensure comments file exists
