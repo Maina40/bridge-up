@@ -5,10 +5,10 @@
 // Example: require 'backend/db.php';
 // $conn is your database connection object.
 
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$dbname = 'bridgeup';
+$host = 'sql113.infinityfree.com';
+$user = 'if0_39976118';
+$pass = 'zGNx0etV1IcB';
+$dbname = 'if0_39976118_bridge_up';
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

@@ -80,69 +80,69 @@
       </div>
     </footer>
   </div>
+  <script>
+    // Load comments from backend
+    function loadComments() {
+      fetch('backend/comments.php')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.json();
+        })
+        .then(comments => {
+          var feedbackList = document.getElementById('feedback-list');
+          feedbackList.innerHTML = '';
+          comments.forEach(function(comment) {
+            var div = document.createElement('div');
+            div.style.background = 'rgba(255,255,255,0.03)';
+            div.style.padding = '12px';
+            div.style.borderRadius = '8px';
+            div.style.marginBottom = '10px';
+            div.style.position = 'relative';
+            div.innerHTML =
+              '<strong>' + comment.name + '</strong> <span style="color:#94a3b8;font-size:12px;">– Visitor</span>' +
+              '<div style="margin-top:6px;">' + comment.text + '</div>' +
+              '<button onclick="deleteComment(this, \'' + comment.id + '\')" style="position:absolute;top:8px;right:8px;background:transparent;border:none;color:#ff4b4b;font-size:16px;cursor:pointer;" title="Delete">&times;</button>';
+            feedbackList.appendChild(div);
+          });
+        })
+        .catch(error => {
+          document.getElementById('feedback-list').innerHTML = '<div style="color:#ff4b4b;">Unable to load comments.</div>';
+        });
+    }
+
+    function deleteComment(btn, id) {
+      fetch('backend/comments.php?id=' + encodeURIComponent(id), { method: 'DELETE' })
+        .then(response => {
+          if (response.ok) btn.parentElement.remove();
+        });
+    }
+
+    document.getElementById('feedback-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('feedback-name').value.trim();
+      var text = document.getElementById('feedback-text').value.trim();
+      if (name && text) {
+        fetch('backend/comments.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, text: text })
+        })
+        .then(response => {
+          if (response.ok) {
+            document.getElementById('feedback-form').reset();
+            loadComments();
+          } else {
+            alert('Failed to submit feedback.');
+          }
+        })
+        .catch(() => alert('Failed to submit feedback.'));
+      }
+    });
+
+    // Initial load
+    loadComments();
+  </script>
 </body>
 </html>
-      // Load comments from backend
-      function loadComments() {
-        fetch('backend/comments.php')
-          .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-          })
-          .then(comments => {
-            var feedbackList = document.getElementById('feedback-list');
-            feedbackList.innerHTML = '';
-            comments.forEach(function(comment) {
-              var div = document.createElement('div');
-              div.style.background = 'rgba(255,255,255,0.03)';
-              div.style.padding = '12px';
-              div.style.borderRadius = '8px';
-              div.style.marginBottom = '10px';
-              div.style.position = 'relative';
-              div.innerHTML =
-                '<strong>' + comment.name + '</strong> <span style="color:#94a3b8;font-size:12px;">– Visitor</span>' +
-                '<div style="margin-top:6px;">' + comment.text + '</div>' +
-                '<button onclick="deleteComment(this, \'' + comment.id + '\')" style="position:absolute;top:8px;right:8px;background:transparent;border:none;color:#ff4b4b;font-size:16px;cursor:pointer;" title="Delete">&times;</button>';
-              feedbackList.appendChild(div);
-            });
-          })
-          .catch(error => {
-            document.getElementById('feedback-list').innerHTML = '<div style="color:#ff4b4b;">Unable to load comments.</div>';
-          });
-      }
-
-      function deleteComment(btn, id) {
-        fetch('backend/comments.php?id=' + encodeURIComponent(id), { method: 'DELETE' })
-          .then(response => {
-            if (response.ok) btn.parentElement.remove();
-          });
-      }
-
-      document.getElementById('feedback-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var name = document.getElementById('feedback-name').value.trim();
-        var text = document.getElementById('feedback-text').value.trim();
-        if (name && text) {
-          fetch('backend/comments.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: name, text: text })
-          })
-          .then(response => {
-            if (response.ok) {
-              document.getElementById('feedback-form').reset();
-              loadComments();
-            } else {
-              alert('Failed to submit feedback.');
-            }
-          })
-          .catch(() => alert('Failed to submit feedback.'));
-        }
-      });
-
-      // Initial load
-      loadComments();
-    </script>
-  </div>
 </body>
 </html>
