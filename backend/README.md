@@ -38,3 +38,24 @@ All data (e.g., feedback, images) is stored in files (like JSON or image folders
 
 **Tip:**  
 If you want to add database features, import the SQL file into your MySQL server and update your PHP code to use it.
+
+# Troubleshooting "Page not found" (404 error)
+
+If you see a "Page not found" error like the screenshot, here are possible causes and solutions:
+
+1. **You are hosting on Netlify or a static host:**  
+   - Netlify does not support PHP or server-side code.  
+   - PHP files (like contact.php, upload_photo.php) will not run on Netlify.
+
+2. **Solution:**  
+   - Host your project on a PHP-enabled server (e.g., cPanel hosting, 000webhost, InfinityFree, XAMPP locally).
+   - If you need PHP, do **not** use Netlify, Vercel, or other static-only hosts.
+
+3. **How to fix:**  
+   - Move your files to a PHP-capable host.
+   - Make sure your URLs point to `.php` files (e.g., `/backend/contact.php`).
+   - Test your site at `http://yourdomain.com` or `http://localhost/bridge_up/` (if using XAMPP).
+
+**Summary:**  
+- Netlify is for static sites (HTML, CSS, JS only).
+- Use a PHP host for backend features.
